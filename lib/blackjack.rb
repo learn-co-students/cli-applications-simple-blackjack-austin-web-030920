@@ -1,37 +1,55 @@
+require 'pry'
+
 def welcome
-  # code #welcome here
+  puts "Welcome to the Blackjack Table"
 end
 
 def deal_card
-  # code #deal_card here
+  rand(1..11)
 end
 
-def display_card_total
-  # code #display_card_total here
+def display_card_total(c_ttl)
+  puts "Your cards add up to #{c_ttl}"
 end
 
 def prompt_user
-  # code #prompt_user here
+  puts "Type 'h' to hit or 's' to stay"
 end
 
 def get_user_input
-  # code #get_user_input here
+  gets.chomp
 end
 
-def end_game
-  # code #end_game here
+def end_game(x)
+  puts "Sorry, you hit #{x}. Thanks for playing!"
 end
 
 def initial_round
-  # code #initial_round here
+  ttl = 0
+  if ttl
+  ttl += deal_card + deal_card
+  print display_card_total(ttl)
+  end
+  return ttl
 end
 
-def hit?
-  # code hit? here
+def hit? (number)
+ttl = number
+prompt_user
+g = get_user_input
+  if g == "h"
+  ttl += deal_card
+  elsif g == "s"
+  ttl
+  else invalid_command
+    prompt_user
+    g = get_user_input
+  end
+  ttl
 end
 
 def invalid_command
-  # code invalid_command here
+  puts "Please enter a valid command"
 end
 
 #####################################################
